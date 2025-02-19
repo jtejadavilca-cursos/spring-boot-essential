@@ -22,7 +22,7 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((authz) -> authz
-                        .requestMatchers("/api/*").hasRole("API_USER")
+                        .requestMatchers("/api/*", "/api/rest/**").hasRole("API_USER")
                         .anyRequest().authenticated()
                 )
                 .formLogin((formLogin) -> formLogin
