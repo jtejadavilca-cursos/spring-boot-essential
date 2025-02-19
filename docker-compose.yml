@@ -1,0 +1,24 @@
+#RabbitMQ
+
+services:
+  rabbitmq:
+    image: 'bitnami/rabbitmq:latest'
+    ports:
+    - "5672:5672"
+    - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "admin"
+      RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS: true
+      RABBITMQ_USERNAME: "guest"
+      RABBITMQ_PASSWORD: "guest"
+    volumes:
+      - 'rabbitmq_data_sb:/bitnami/rabbitmq/mnesia'
+
+
+networks:
+  app-tier:
+    driver: bridge
+volumes:
+  rabbitmq_data_sb:
+    driver: local

@@ -5,6 +5,7 @@ import pe.com.jtvdeveloper.spring_boot_essential_reuniones.data.ReunionRepositor
 import pe.com.jtvdeveloper.spring_boot_essential_reuniones.models.Reunion;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReunionService {
@@ -16,5 +17,9 @@ public class ReunionService {
 
     public List<Reunion> getAllReuniones() {
         return this.reunionRepository.findAll();
+    }
+
+    public Optional<Reunion> getById(Long id) {
+        return this.reunionRepository.findById(id);
     }
 }
