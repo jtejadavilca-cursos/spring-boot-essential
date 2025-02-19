@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reuniones | Listado</title>
+    </head>
+    <body>
+        <h1>Reuniones</h1>
+
+        <ul>
+            <li th:each="reunion : ${reuniones}">
+                <span th:text="${reunion.asunto}">Asunto</span>
+                (<span th:text="${#temporals.format(reunion.fecha, 'dd-MM-yyyy')}">Fecha</span>)
+                <ul>
+                    <li th:each="asistente : ${reunion.asistentes}">
+                        <span th:text="${asistente.nombre}"></span>
+                        <span th:text="${asistente.apellidos}"></span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </body>
+</html>
